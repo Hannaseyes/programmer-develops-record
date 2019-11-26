@@ -1,0 +1,29 @@
+body {
+	background-image: url(../img/game_backgroud.png);
+}
+
+.title_div {
+	color: #FFFFFF;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 4rem;
+	border-bottom: #FFFFFF ridge 0.3rem;
+	padding: 1rem;
+	font-family: "naiyou";
+}
+
+.chapter_div {
+	text-align: center;
+}
+
+.chapter_div > button {
+	width: 80%;
+	margin: 1rem 0;
+	color: #FFFFFF;
+	border: #FFFFFF outset 0.3rem;
+	border-radius: 1rem;
+	text-align: center;
+	font-size: 2rem;
+	font-family: "naiyou";
+	background-color: transparent;
+}

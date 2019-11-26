@@ -1,0 +1,33 @@
+body {
+	background-image: url(../img/game_backgroud.png);
+}
+
+#yuan {
+	font-size: 4rem;
+}
+
+.index-title {
+	color: #FFFFFF;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 3rem;
+	font-weight: 0;
+	padding: 1rem;
+	font-family: "naiyou";
+}
+
+.index_div {
+	text-align: center;
+}
+
+.index_div>button {
+	width: 80%;
+	margin: 1rem 0;
+	color: #FFFFFF;
+	border: #FFFFFF solid 0.15rem;
+	border-radius: 1rem;
+	text-align: center;
+	font-size: 2.5rem;
+	font-family: "naiyou";
+	background-color: transparent;
+}

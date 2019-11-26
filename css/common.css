@@ -1,0 +1,22 @@
+@font-face {
+	font-family: 'naiyou';
+	src: url(../font/naiyou.ttf);
+}
+
+@font-face {
+	font-family: 'kaiti';
+	src: url(../font/kaiti.ttf);
+}
+
+body {
+	background-color: #4DA59E;
+}
+
+input,
+button,
+a,
+select,
+textarea {
+	outline: none !important;
+	blr: expression(this.onFocus=this.blur());
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript" src="layui/layui.all.js"></script>
+		<script type="text/javascript" src="js/notiflix-1.9.1.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/game.js"></script>
+		<link rel="stylesheet" href="css/notiflix-1.9.1.css">
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/game.css">
+	</head>
+	<body>
+		<div id="originalImgDiv" class="hide" style="display: none;">
+			<img id="originalImg" src="" width="100%" height="100%" />
+		</div>
+		<div id="article">
+			<p id="word" style="display:none;"></p>
+			<textarea id="show" disabled="disabled"></textarea>
+		</div>
+		<div id="statistics">
+			<label>完成：</label><label id="percent">0.00%</label>&emsp;&emsp;&emsp;&emsp;
+			<label>时间：</label><label id="puzzleTime"></label>&emsp;&emsp;&emsp;&emsp;
+			<button type="button" id="originalImgBtn" class="layui-btn">原图</button>
+		</div>
+		<div id="puzzle-outer">
+			<div id="puzzle-inner">
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			// 初始化弹窗控件
+			Notiflix.Confirm.Init({
+				width: '60%',
+				titleFontSize: '50px',
+				messageFontSize: '30px',
+				buttonsFontSize: '25px',
+				okButtonColor: '#f8f8f8',
+				okButtonBackground: '#a9a9a9',
+				cancelButtonColor: '#f8f8f8',
+				cancelButtonBackground: '#00b462',
+			});
+
+			$("#puzzleTime").text(puzzleTime + "s");
+			$("#word").text(chapterObj.responseText);
+			$("#originalImg").attr('src', 'img/level' + puzzleLevel + '/0.jpg');
+			// 文章区域对象
+			story = $('#word');
+			show = $('#show');
+			// 获取拼图区域长宽
+			var puzzleWidth = $("#puzzle-inner").width();
+			var puzzleHeight = $("#puzzle-inner").height();
+			var puzzleDivWidth = puzzleWidth / puzzleRow - 2;
+			var puzzleDivHeight = puzzleHeight / puzzleCol - 2;
+
+			// 原图点击事件
+			$("#originalImgBtn").on('click', function() {
+				layer.open({
+					type: 1,
+					title: false,
+					closeBtn: 1,
+					scrollbar: false,
+					area: [puzzleWidth + 'px', puzzleHeight + 'px'],
+					skin: 'layui-layer-nobg', //没有背景色
+					move: false,
+					shadeClose: true,
+					content: $('#originalImgDiv')
+				});
+			});
+			
+			// 初始化迷宫
+			for (var i = 0; i < puzzleRow; i++) {
+				for (var j = 0; j < puzzleCol; j++) {
+					if (puzzleArray[puzzleIdx] != puzzleRow * puzzleCol - 1) {
+						puzzleInnerHTML += "<div style='margin: 1px; float: left; width:" + puzzleDivWidth + "px; height:" +
+							puzzleDivHeight + "px;'class='puzzle_div' id='puzzle_" + i + "_" + j +
+							"'><img class='puzzle' id='" + (puzzleArray[
+								puzzleIdx] + 1) + "' src='img/level" + puzzleLevel +
+							"/" + (puzzleArray[
+								puzzleIdx] + 1) +
+							".jpg' width='100%' height='100%' /></div>";
+						puzzleIdx++;
+					} else {
+						blankX = i;
+						blankY = j;
+						puzzleInnerHTML += "<div style='margin: 1px; float: left; width:" + puzzleDivWidth + "px; height:" +
+							puzzleDivHeight + "px;' class='puzzle_div' id='puzzle_" + i + "_" + j + "'><img/></div>";
+					}
+				}
+			}
+
+			// 添加迷宫HTML并初始化样式
+			$("#puzzle-inner").html(puzzleInnerHTML);
+			bindPuzzleClick($(".puzzle_div"));
+		});
+	</script>
+</html>

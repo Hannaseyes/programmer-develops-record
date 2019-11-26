@@ -1,0 +1,95 @@
+body {
+	background: url(../img/game_backgroud.png);
+}
+
+/* 拼图外边界 */
+#puzzle-outer {
+	width: 90%;
+	height: 90vw;
+	background-color: #FAF9DE;
+	border-radius: 1.5rem;
+	padding: 1rem;
+	margin: 0 auto;
+	box-shadow: 15px 15px 5px #888888;
+}
+
+/* 拼图内边界 */
+#puzzle-inner {
+	width: 100%;
+	height: 100%;
+	background-color: #FAF9DE;
+}
+
+/* 文章外边框 */
+#article {
+	width: 85%;
+	height: 60vw;
+	background-color: #FAF9DE;
+	border-radius: 1.5rem;
+	padding: 1rem;
+	margin: 0 auto;
+	margin-top: 3rem;
+	text-align: center;
+	box-shadow: 15px 15px 5px #888888;
+}
+
+/* 文章显示区域 */
+#show {
+	width: 100%;
+	height: 100%;
+	border: none;
+	outline: none;
+	resize: none;
+	font-family: "kaiti";
+	background-color: #FAF9DE;
+	font-size: 3rem;
+}
+
+/* 统计区域 */
+#statistics {
+	width: 100%;
+	height: 20vw;
+	margin: 0 auto;
+	text-align: center;
+}
+
+/* 统计标签 */
+label {
+	font-size: 3rem;
+	color: #FFFFFF;
+	line-height: 20vw;
+	text-align: center;
+	font-family: "kaiti";
+	font-weight: bold;
+}
+
+/* 偷看按钮 */
+#originalImgBtn {
+	background-color: #DCC43C;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	padding: 1rem 2rem;
+	font-family: "kaiti";
+	font-size: 3rem;
+	font-weight: bold;
+	border: 2px solid #FFFFFF;
+	border-radius: 1rem;
+	box-shadow: 0 8px 16px 0 #C24A39, 0 6px 20px 0 #C24A39;
+}
+
+.mask {
+	background: #000;
+	width: 100%;
+	height: 100%;
+	margin: 0 10rpx;
+	justify-content: center;
+}
+
+.mask image {
+	width: 100%;
+	height: 100%;
+	margin: auto;
+	-webkit-mask: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5));
+}

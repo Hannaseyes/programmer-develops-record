@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/chapter.css">
+	</head>
+	<body>
+		<div class='title_div'>选择章节</div>
+		<div class="chapter_div">
+			<button id="chapter0">第一章</button></div>
+		<div class="chapter_div">
+			<button id="chapter1">第二章</button></div>
+		<div class="chapter_div">
+			<button id="chapter2">第三章</button></div>
+		<div class="chapter_div">
+			<button id="chapter3">第四章</button></div>
+	</body>
+
+	<script type="text/javascript">
+		document.addEventListener("plusready", function() {
+			// 注册返回按键事件 
+			plus.key.addEventListener('backbutton', function() {
+				// 事件处理 
+				window.location.href = 'index.html';
+			}, false);
+		});
+		
+		
+		$("#chapter0").click(function() {
+			window.location.href = 'game.html?puzzleLevel=0&puzzleRow=3&puzzleCol=3&puzzleTime=60';
+		});
+		$("#chapter1").click(function() {
+			window.location.href = 'game.html?puzzleLevel=1&puzzleRow=4&puzzleCol=4&puzzleTime=180';
+		});
+		$("#chapter2").click(function() {
+			window.location.href = 'game.html?puzzleLevel=2&puzzleRow=5&puzzleCol=5&puzzleTime=360';
+		});
+		$("#chapter3").click(function() {
+			window.location.href = 'game.html?puzzleLevel=3&puzzleRow=6&puzzleCol=6&puzzleTime=540';
+		});
+	</script>
+</html>

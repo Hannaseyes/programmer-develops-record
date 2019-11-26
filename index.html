@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/index.css">
+	</head>
+	<body>
+		<div class="index-title">
+			程序<label id="yuan">猿</label>养成记
+		</div>
+		<div class="index_div">
+			<button id="chooseChapter">选择章节</button>
+		</div>
+		<div class="index_div">
+			<button id="myAchievement">我的成就</button>
+		</div>
+		<div class="index_div">
+			<button id="gameRecord">闯关记录</button>
+		</div>
+		<div class="index_div">
+			<button id="gameHelp">游戏帮助</button>
+		</div>
+		<div class="index_div" hidden="hidden">
+			<button id="hideChapter">隐藏关卡</button>
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		document.addEventListener("plusready", function() {
+			// 注册返回按键事件 
+			plus.key.addEventListener('backbutton', function() {
+				// 事件处理 
+				plus.nativeUI.confirm("退出程序？", function(event) {
+					if (event.index == 0) {
+						plus.runtime.quit();
+					}
+				}, null, ["取消", "确定"]);
+			}, false);
+		});
+
+		$("#chooseChapter").on('click', function() {
+			window.location.href = 'chapter.html';
+		});
+		
+		$("#myAchievement").on('click', function() {
+			window.location.href = 'achievement.html';
+		});
+	</script>
+</html>
