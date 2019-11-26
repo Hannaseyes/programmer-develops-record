@@ -81,6 +81,7 @@ function exchangePuzzle(puzzle, blank) {
 		$("#puzzle-inner").html(finishHTML);
 		// 成功数据写入localStorage;
 		storage.setItem('record' + puzzleLevel, $('#puzzleTime').text());
+		// 添加完成记录以及成就
 		if (puzzleTime >= puzzleTimeTotal / 2) {
 			storage.setItem('achievement' + puzzleLevel, puzzleLevel + '_1');
 		} else {
