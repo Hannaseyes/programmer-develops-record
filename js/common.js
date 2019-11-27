@@ -1,4 +1,5 @@
 var storage = window.localStorage;// 本地数据
+
 // 获取参数
 var paramStr = window.location.search.replace('?', '');
 var paramArray = paramStr.split('&');

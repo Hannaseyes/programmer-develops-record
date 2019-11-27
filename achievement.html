@@ -5,7 +5,9 @@
 		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<title></title>
 		<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript" src="js/notiflix-1.9.1.js"></script>
 		<script type="text/javascript" src="js/common.js"></script>
+		<link rel="stylesheet" href="css/notiflix-1.9.1.css">
 		<link rel="stylesheet" href="css/common.css">
 		<link rel="stylesheet" href="css/achievement.css">
 	</head>
@@ -56,24 +58,24 @@
 			</div>
 		</div>
 		<div class="achievement_div_outer">
-			<div class="achievement_div_inner" id="achievement_div_inner3_0">
+			<div class="achievement_div_inner" id="achievement_div_inner4_0">
 				<div class="achievement_div_content">完成第五章</div>
 			</div>
-			<div class="achievement_div_inner" id="achievement_div_inner3_1">
+			<div class="achievement_div_inner" id="achievement_div_inner4_1">
 				<div class="achievement_div_content">300s内完成</div>
 			</div>
-			<div class="achievement_div_inner" id="achievement_div_inner3_2">
+			<div class="achievement_div_inner" id="achievement_div_inner4_2">
 				<div class="achievement_div_content">?</div>
 			</div>
 		</div>
 		<div class="achievement_div_outer">
-			<div class="achievement_div_inner" id="achievement_div_inner3_0">
+			<div class="achievement_div_inner" id="achievement_div_inner5_0">
 				<div class="achievement_div_content">完成第六章</div>
 			</div>
-			<div class="achievement_div_inner" id="achievement_div_inner3_1">
+			<div class="achievement_div_inner" id="achievement_div_inner5_1">
 				<div class="achievement_div_content">420s内完成</div>
 			</div>
-			<div class="achievement_div_inner" id="achievement_div_inner3_2">
+			<div class="achievement_div_inner" id="achievement_div_inner5_2">
 				<div class="achievement_div_content">?</div>
 			</div>
 		</div>
@@ -91,19 +93,19 @@
 		$(document).ready(function() {
 			for (var i = 0; i < 6; i++) {
 				var achievement = storage.getItem('achievement' + i);
+				var achievement_hide = storage.getItem('achievement_hide' + i);
 				if (achievement != undefined && achievement != '') {
-					console.log(achievement)
 					var lastNum = achievement.substring(achievement.length - 1);
 					if (lastNum == '1') {
 						var achievementPre = achievement.replace('_1', '_0');
-						$('#achievement_div_inner' + achievementPre).css("background-image", "url(img/achievement/" +
-							achievementPre + ".png)");
+						$('#achievement_div_inner' + achievementPre).css("background-image", "url(img/achievement/" + achievementPre +
+							".png)");
 						$('#achievement_div_inner' + achievement).css("background-image", "url(img/achievement/" + achievement +
 							".png)");
-						$('#achievement_div_inner' + achievement).children('.achievement_div_content').html('');
 						
+						$('#achievement_div_inner' + achievement).children('.achievement_div_content').html('');
 						$('#achievement_div_inner' + achievementPre).children('.achievement_div_content').html('');
-							
+
 						$('#achievement_div_inner' + achievementPre).css("background-size", "cover");
 						$('#achievement_div_inner' + achievement).css("background-size", "cover");
 					} else {
@@ -111,22 +113,39 @@
 							".png)");
 						$('#achievement_div_inner' + achievement).css("background-size", "cover");
 						$('#achievement_div_inner' + achievement).children('.achievement_div_content').html('');
-						
 					}
+				}
+
+				if (achievement_hide != undefined && achievement_hide != null) {
+					//$('#achievement_div_inner' + achievement_hide).css("background-image", "url(img/achievement/" + achievement +".png)");
+					//$('#achievement_div_inner' + achievement_hide).css("background-size", "cover");
+					$('#achievement_div_inner' + achievement_hide).children('.achievement_div_content').html('已解锁');
 				}
 			}
 		});
-		$("#chapter0").click(function() {
-			window.location.href = 'game.html?puzzleLevel=0&puzzleRow=3&puzzleCol=3&puzzleTime=60';
+		
+		$("#achievement_div_inner3_0").on('click', function() {
+			var finishFlag = storage.getItem('achievement3');
+			if (finishFlag != undefined && finishFlag != null) {
+				storage.setItem("achievement_hide3", "3_2");
+				Notiflix.Report.Success('发现隐藏成就',
+					'恭喜你发现了一个隐藏成就---她的星座', '确定');
+				$("#NXReportButton").on('click', function() {
+					window.location.reload();
+				})
+			}
 		});
-		$("#chapter1").click(function() {
-			window.location.href = 'game.html?puzzleLevel=1&puzzleRow=4&puzzleCol=4&puzzleTime=180';
-		});
-		$("#chapter2").click(function() {
-			window.location.href = 'game.html?puzzleLevel=2&puzzleRow=5&puzzleCol=5&puzzleTime=360';
-		});
-		$("#chapter3").click(function() {
-			window.location.href = 'game.html?puzzleLevel=3&puzzleRow=6&puzzleCol=6&puzzleTime=540';
+		
+		$("#achievement_div_inner4_0").on('click', function() {
+			var finishFlag = storage.getItem('achievement3');
+			if (finishFlag != undefined && finishFlag != null) {
+				storage.setItem("achievement_hide4", "4_2");
+				Notiflix.Report.Success('发现隐藏成就',
+					'恭喜你发现了一个隐藏成就---他的星座', '确定');
+				$("#NXReportButton").on('click', function() {
+					window.location.reload();
+				})
+			}
 		});
 	</script>
 </html>

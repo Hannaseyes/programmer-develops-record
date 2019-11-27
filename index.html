@@ -5,7 +5,9 @@
 		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<title></title>
 		<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript" src="js/notiflix-1.9.1.js"></script>
 		<script type="text/javascript" src="js/common.js"></script>
+		<link rel="stylesheet" href="css/notiflix-1.9.1.css">
 		<link rel="stylesheet" href="css/common.css">
 		<link rel="stylesheet" href="css/index.css">
 	</head>
@@ -43,12 +45,29 @@
 			}, false);
 		});
 
+		// 初始化弹窗控件
+		Notiflix.Confirm.Init({
+			width: '60%',
+			titleFontSize: '50px',
+			messageFontSize: '30px',
+			buttonsFontSize: '25px',
+			okButtonColor: '#f8f8f8',
+			okButtonBackground: '#a9a9a9',
+			cancelButtonColor: '#f8f8f8',
+			cancelButtonBackground: '#00b462',
+		});
+
 		$("#chooseChapter").on('click', function() {
 			window.location.href = 'chapter.html';
 		});
-		
+
 		$("#myAchievement").on('click', function() {
 			window.location.href = 'achievement.html';
+		});
+		$("#yuan").on('click', function() {
+			Notiflix.Report.Success('发现隐藏成就',
+				'恭喜你发现了一个隐藏成就---是员不是猿', '确定');
+			storage.setItem("achievement_hide0", "0_2");
 		});
 	</script>
 </html>
