@@ -29,6 +29,9 @@
 		<div class="chapter_div">
 			<button id="chapter5">第六章</button>
 		</div>
+		<div id="bottomDiv">
+			Thank you for playing my game-My Love
+		</div>
 	</body>
 
 	<script type="text/javascript">
@@ -42,22 +45,27 @@
 
 
 		$("#chapter0").click(function() {
-			window.location.href = 'game.html?puzzleLevel=0&puzzleRow=3&puzzleCol=3&puzzleTime=60';
+			window.location.href = 'game.html?puzzleLevel=0&puzzleRow=3&puzzleCol=3&puzzleTime=100';
 		});
 		$("#chapter1").click(function() {
-			window.location.href = 'game.html?puzzleLevel=1&puzzleRow=4&puzzleCol=4&puzzleTime=120';
+			window.location.href = 'game.html?puzzleLevel=1&puzzleRow=4&puzzleCol=4&puzzleTime=300';
 		});
 		$("#chapter2").click(function() {
-			window.location.href = 'game.html?puzzleLevel=2&puzzleRow=5&puzzleCol=5&puzzleTime=300';
+			window.location.href = 'game.html?puzzleLevel=2&puzzleRow=5&puzzleCol=5&puzzleTime=600';
 		});
 		$("#chapter3").click(function() {
-			window.location.href = 'game.html?puzzleLevel=3&puzzleRow=6&puzzleCol=6&puzzleTime=480';
+			window.location.href = 'game.html?puzzleLevel=3&puzzleRow=6&puzzleCol=6&puzzleTime=900';
 		});
 		$("#chapter4").click(function() {
-			window.location.href = 'game.html?puzzleLevel=4&puzzleRow=7&puzzleCol=7&puzzleTime=600';
+			window.location.href = 'game.html?puzzleLevel=4&puzzleRow=7&puzzleCol=7&puzzleTime=1500';
 		});
 		$("#chapter5").click(function() {
-			window.location.href = 'game.html?puzzleLevel=5&puzzleRow=8&puzzleCol=8&puzzleTime=840';
+			window.location.href = 'game.html?puzzleLevel=5&puzzleRow=8&puzzleCol=8&puzzleTime=3000';
+		});
+		$("#bottomDiv").on('click', function() {
+			Notiflix.Report.Success('发现隐藏成就',
+				'恭喜你发现了一个隐藏成就---谢谢你玩我的游戏', '确定');
+			storage.setItem("achievement_hide1", "1_2");
 		});
 	</script>
 </html>

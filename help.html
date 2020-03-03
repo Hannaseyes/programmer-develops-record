@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript" src="js/notiflix-1.9.1.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<link rel="stylesheet" href="css/notiflix-1.9.1.css">
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/help.css">
+	</head>
+	<body>
+		<div id="article">
+			<textarea id="show" disabled="disabled">
+				1.点击选择章节进入章节选择界面，难度逐章增加
+				2.完成章节或在一定时间内完成可以解锁游戏成就
+				3.点击游戏内隐藏触发点可以解锁隐藏成就
+				4.完成全部成就可以解锁隐藏章节
+				5.完成隐藏章节可以获得隐藏奖励
+			</textarea>
+		</div>
+		<div id="bottomDiv">
+			Thank you for playing my game-My Love
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			document.addEventListener("plusready", function() {
+				// 注册返回按键事件 
+				plus.key.addEventListener('backbutton', function() {
+					// 事件处理 
+					window.location.href = 'index.html';
+				}, false);
+			});
+
+			$("#bottomDiv").on('click', function() {
+				Notiflix.Report.Success('发现隐藏成就',
+					'恭喜你发现了一个隐藏成就---谢谢你玩我的游戏', '确定');
+				storage.setItem("achievement_hide1", "1_2");
+			});
+		});
+	</script>
+</html>

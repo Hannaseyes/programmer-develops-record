@@ -94,7 +94,7 @@ function exchangePuzzle(puzzle, blank) {
 		$(".finishImg").on('touchstart', function() {
 			if (percent == 100) {
 				Notiflix.Confirm.Show('闯关成功',
-					'你成功写完了一个充满Bug的小程序，可喜可贺。',
+					'成功解锁成就，可喜可贺。',
 					'返回首页', '继续闯关',
 					function() {
 						window.location.href = 'index.html';
@@ -112,7 +112,7 @@ function exchangePuzzle(puzzle, blank) {
 		countdownTimer = setInterval(function() {
 			if (puzzleTime == 0) {
 				Notiflix.Confirm.Show('闯关失败',
-					'没有在规定时间内写完程序，非常遗憾。',
+					'没有在规定时间内完成，非常遗憾。',
 					'返回', '重新开始',
 					function() {
 						window.location.href = 'index.html';

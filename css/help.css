@@ -1,0 +1,41 @@
+body {
+	background: url(../img/game_backgroud.png);
+}
+
+/* 文章外边框 */
+#article {
+	width: 85%;
+	height: 110vw;
+	background-color: #FAF9DE;
+	border-radius: 1.5rem;
+	padding: 1rem;
+	margin: 0 auto;
+	margin-top: 3rem;
+	text-align: center;
+	box-shadow: 1px 1px 1px #888888;
+}
+
+/* 文章显示区域 */
+#show {
+	width: 100%;
+	height: 100%;
+	border: none;
+	outline: none;
+	resize: none;
+	font-family: "kaiti";
+	background-color: #FAF9DE;
+	font-size: 1.5rem;
+}
+
+#bottomDiv {
+	width: 100%;
+	height: 35px;
+	line-height: 35px;
+	background: #FAF9DE;
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	font-size: 14px;
+	color: #000;
+	text-align: center;
+}
