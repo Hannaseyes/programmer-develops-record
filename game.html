@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 		<script type="text/javascript" src="layui/layui.all.js"></script>
 		<script type="text/javascript" src="js/notiflix-1.9.1.js"></script>
@@ -20,8 +21,8 @@
 			<textarea id="show" disabled="disabled"></textarea>
 		</div>
 		<div id="statistics">
-			<label>完成：</label><label id="percent">0.00%</label>&emsp;&emsp;&emsp;&emsp;
-			<label>时间：</label><label id="puzzleTime"></label>&emsp;&emsp;&emsp;&emsp;
+			<label>完成：</label><label id="percent">0.00%</label>&emsp;
+			<label>时间：</label><label id="puzzleTime"></label>&emsp;
 			<button type="button" id="originalImgBtn" class="layui-btn">原图</button>
 		</div>
 		<div id="puzzle-outer">
@@ -34,9 +35,9 @@
 			// 初始化弹窗控件
 			Notiflix.Confirm.Init({
 				width: '60%',
-				titleFontSize: '50px',
-				messageFontSize: '30px',
-				buttonsFontSize: '25px',
+				titleFontSize: '25px',
+				messageFontSize: '15px',
+				buttonsFontSize: '10px',
 				okButtonColor: '#f8f8f8',
 				okButtonBackground: '#a9a9a9',
 				cancelButtonColor: '#f8f8f8',
@@ -69,7 +70,11 @@
 					content: $('#originalImgDiv')
 				});
 			});
-			
+			$("#puzzleTime").on('click', function() {
+				Notiflix.Report.Success('发现隐藏成就',
+					'恭喜你发现了一个隐藏成就---时间不够也不能暂停哦', '确定');
+				storage.setItem("achievement_hide2", "2_2");
+			});
 			// 初始化迷宫
 			for (var i = 0; i < puzzleRow; i++) {
 				for (var j = 0; j < puzzleCol; j++) {

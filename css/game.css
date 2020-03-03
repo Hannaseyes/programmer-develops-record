@@ -23,12 +23,12 @@ body {
 /* 文章外边框 */
 #article {
 	width: 85%;
-	height: 60vw;
+	height: 50vw;
 	background-color: #FAF9DE;
 	border-radius: 1.5rem;
 	padding: 1rem;
 	margin: 0 auto;
-	margin-top: 3rem;
+	margin-top: 1.5rem;
 	text-align: center;
 	box-shadow: 15px 15px 5px #888888;
 }
@@ -42,7 +42,7 @@ body {
 	resize: none;
 	font-family: "kaiti";
 	background-color: #FAF9DE;
-	font-size: 3rem;
+	font-size: 1.5rem;
 }
 
 /* 统计区域 */
@@ -55,7 +55,7 @@ body {
 
 /* 统计标签 */
 label {
-	font-size: 3rem;
+	font-size: 1rem;
 	color: #FFFFFF;
 	line-height: 20vw;
 	text-align: center;
@@ -70,9 +70,9 @@ label {
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
-	padding: 1rem 2rem;
+	padding: 0.5rem 1rem;
 	font-family: "kaiti";
-	font-size: 3rem;
+	font-size: 1rem;
 	font-weight: bold;
 	border: 2px solid #FFFFFF;
 	border-radius: 1rem;

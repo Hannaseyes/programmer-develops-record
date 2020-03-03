@@ -77,7 +77,7 @@ function exchangePuzzle(puzzle, blank) {
 		var finishHTML =
 			"<div  class='finishImg' style='position: relative; width: 100%; height: 100%;'><img style='width: 100%; height: 100%;filter: blur(0.5rem);' src='img/level" +
 			puzzleLevel +
-			"/0.jpg' /><div style='position: absolute; width: 100%; height: 100%; z-indent: 2; left: 0; top: 0;font-size: 3.5rem; text-align: center; color: white; font-weight: 600; font-family: naiyou'><div>恭喜，(๑•̀ㅂ•́)و✧点击继续</div></div></div>";
+			"/0.jpg' /><div style='position: absolute; width: 100%; height: 100%; z-indent: 2; left: 0; top: 0;font-size: 1.5rem; text-align: center; color: white; font-weight: 300; font-family: naiyou'><div>恭喜，(๑•̀ㅂ•́)و✧点击继续</div></div></div>";
 		$("#puzzle-inner").html(finishHTML);
 		// 成功数据写入localStorage;
 		storage.setItem('record' + puzzleLevel, $('#puzzleTime').text());
