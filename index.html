@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript" src="layui/layui.all.js"></script>
 		<script type="text/javascript" src="js/notiflix-1.9.1.js"></script>
 		<script type="text/javascript" src="js/common.js"></script>
 		<link rel="stylesheet" href="css/notiflix-1.9.1.css">
@@ -23,8 +24,11 @@
 		<div class="index_div">
 			<button id="gameHelp">游戏帮助</button>
 		</div>
-		<div class="index_div" hidden="hidden">
-			<button id="hideChapter">隐藏关卡</button>
+		<div class="index_div" id="hide_reward_div" hidden="hidden">
+			<button id="hide_reward">隐藏奖励</button>
+		</div>
+		<div id="hideRewardImgDiv" class="hide" style="display: none;">
+			<img id="hideRewardImg" src="" width="100%" height="100%" />
 		</div>
 		<div id="bottomDiv">
 			Thank you for playing my game-My Love
@@ -42,6 +46,37 @@
 					}
 				}, null, ["取消", "确定"]);
 			}, false);
+		});
+
+		// 检查是否显示隐藏奖励
+		var reward = true;
+		for (var i = 0; i < 6; i++) {
+			var rewardItem = storage.getItem("achievement_hide" + i);
+			var achievementItem = storage.getItem("achievement" + i);
+			if (rewardItem == null || rewardItem == "" || rewardItem == undefined ||
+				achievementItem == null || achievementItem == "" || achievementItem == undefined) {
+				reward = false;
+				break;
+			}
+		}
+
+		if (reward) {
+			$("#hide_reward_div").show();
+			$("#hideRewardImg").attr('src', 'img/password.png');
+		}
+
+		// 原图点击事件
+		$("#hide_reward").on('click', function() {
+			layer.open({
+				type: 1,
+				title: false,
+				closeBtn: 1,
+				scrollbar: false,
+				skin: 'layui-layer-nobg', //没有背景色
+				move: false,
+				shadeClose: true,
+				content: $('#hideRewardImgDiv')
+			});
 		});
 
 		// 初始化弹窗控件
@@ -63,17 +98,17 @@
 		$("#myAchievement").on('click', function() {
 			window.location.href = 'achievement.html';
 		});
-		
+
 		$("#gameHelp").on('click', function() {
 			window.location.href = 'help.html';
 		});
-		
+
 		$("#yuan").on('click', function() {
 			Notiflix.Report.Success('发现隐藏成就',
 				'恭喜你发现了一个隐藏成就---是员不是猿', '确定');
 			storage.setItem("achievement_hide0", "0_2");
 		});
-		
+
 		$("#bottomDiv").on('click', function() {
 			Notiflix.Report.Success('发现隐藏成就',
 				'恭喜你发现了一个隐藏成就---谢谢你玩我的游戏', '确定');

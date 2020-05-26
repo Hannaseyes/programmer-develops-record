@@ -11,13 +11,15 @@
 		<link rel="stylesheet" href="css/help.css">
 	</head>
 	<body>
+		<div id='title'>帮助</div>
+		<div id='title-hide'>居然有<span id="hide-reward" style="color: red;">隐藏奖励</span></div>
 		<div id="article">
 			<textarea id="show" disabled="disabled">
 				1.点击选择章节进入章节选择界面，难度逐章增加
-				2.完成章节或在一定时间内完成可以解锁游戏成就
+				2.完成章节或在要求时间内完成可以解锁游戏成就
 				3.点击游戏内隐藏触发点可以解锁隐藏成就
-				4.完成全部成就可以解锁隐藏章节
-				5.完成隐藏章节可以获得隐藏奖励
+				4.完成全部成就可以获得隐藏奖励
+				5.隐藏奖励本年度内兑换完成，解释权归开发者所有
 			</textarea>
 		</div>
 		<div id="bottomDiv">
@@ -35,10 +37,10 @@
 				}, false);
 			});
 
-			$("#bottomDiv").on('click', function() {
+			$("#hide-reward").on('click', function() {
 				Notiflix.Report.Success('发现隐藏成就',
-					'恭喜你发现了一个隐藏成就---谢谢你玩我的游戏', '确定');
-				storage.setItem("achievement_hide1", "1_2");
+					'恭喜你发现了一个隐藏成就---隐藏奖励就是隐藏奖励喽', '确定');
+				storage.setItem("achievement_hide2", "2_2");
 			});
 		});
 	</script>

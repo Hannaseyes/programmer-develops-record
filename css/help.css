@@ -25,7 +25,29 @@ body {
 	font-family: "kaiti";
 	background-color: #FAF9DE;
 	font-size: 1.5rem;
+	overflow: hidden;
 }
+
+#title {
+	color: #FFFFFF;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 3rem;
+	font-weight: 0;
+	padding-top: 1rem;
+	font-family: "naiyou";
+}
+
+#title-hide {
+	color: #FFFFFF;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 2rem;
+	font-weight: 0;
+	padding-top: 1rem;
+	font-family: "naiyou";
+}
+
 
 #bottomDiv {
 	width: 100%;
